@@ -1,0 +1,50 @@
+input[type="checkbox"] {
+  display: none;
+}
+input[type="checkbox"] + span {
+  display: inline-block;
+  position: relative;
+  margin-top: 2vh;
+  margin-left: 2vh;
+  width:  5vh;
+  height: 5vh; 
+  margin-left: 1vh;
+  vertical-align: middle;
+  background: white left top no-repeat;
+  border: 0.5vh solid black;
+  cursor: pointer;
+  padding: 1vh; 
+}
+
+
+.bold { font-weight: bold; }
+
+
+/*input[type="checkbox"]:checked + span {
+  background: salmon top no-repeat;
+  border: 2px solid black;
+  margin-top: 5%;
+  margin-left: 150%;
+  transition: all 150ms;
+  fill: none;
+  stroke: white;
+  stroke-width: 2px;
+}*/
+
+input[type="checkbox"]:checked + span {
+  background: salmon top;
+  stroke: white;
+  stroke-width: 2px;
+  margin-top: 2vh;
+  margin-left: 2vh;
+  width:  5vh;
+  height: 5vh; 
+  margin-left: 1vh;
+  vertical-align: middle;
+  border: 0.5vh solid black;
+  padding: 1vh; 
+}
+
+
+
+

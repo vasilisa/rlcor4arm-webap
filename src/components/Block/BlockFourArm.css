@@ -1,0 +1,76 @@
+.block {
+  text-align: center;
+    display:flex;
+    padding-top:10%;
+    justify-content:center;
+    flex-direction:row;  
+    font-size: 150%;
+}
+
+
+.restarttraining {
+  text-align: center;
+    padding-top:5%;
+    justify-content:center;
+    font-size: 200%;
+}
+
+
+.button{
+  top: 2vh;
+  padding: 2vh; 
+  width: 25vh;
+  height: 5vh; 
+  margin: 0.5vh 0.5vh 0 0;
+  vertical-align: center;
+  background: #8594; 
+  border: 0.5vh solid black;
+  cursor: pointer;
+}
+
+
+.buttonInstructionsBlock{
+  width: 25vh;
+  height: 5vh;
+  margin-top:4vh;
+  border-radius: 0.5vh;
+  font-weight:bold; 
+  position:center;
+  margin-right:5vh;
+
+}
+
+.buttonInstructionsHiddenBlock{
+  width: 5vh;
+  height: 5vh;
+  margin: 0 auto;
+  border-radius: 0.5vh;
+  font-weight:bold; 
+}
+
+
+
+/*
+
+.textbox{
+  font: 26px "Century Gothic", Futura, sans-serif;
+}
+
+.bold { font-weight: bold; }
+.red { color: #FF0000; }
+.blue { color: #326699; }
+
+.buttonInstructions{
+  width: 10%;
+  height: 10%;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+.buttonInstructionsHidden{
+  width: 10%;
+  height: 10%;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+*/

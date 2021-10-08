@@ -1,0 +1,135 @@
+.introsymbol{
+  width: 25vh;
+  height: 25vh;
+  margin-left: 5vh;
+  margin-right: 12vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh; 
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;  
+  border: 0.5vh solid black;
+  border-radius: 0.5vh; 
+  }   
+
+
+.intro4symbol{
+  width: 140vh;
+  height: 45vh;
+  margin-left: 5vh;
+  margin-right: 12vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh; 
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;  
+  }
+
+.InstructText{
+  font: "Century Gothic", Futura, sans-serif;
+  font-size  : 4vh;
+  margin-top : 1vh;
+  margin-left: 1vh;
+  border-width: 0.5vh;
+}
+
+.textbox{
+  font: "Century Gothic", Futura, sans-serif;
+  font-size  : 4vh; 
+  margin-top : 1vh;
+  margin-left: 1vh;
+}
+
+.buttonInstructions{
+  width: 10%;
+  height: 10%;
+  margin: 0 auto;
+  border-radius: 3px;
+  font-weight:bold; 
+
+}
+
+.buttonInstructionsHidden{
+  width: 10%;
+  height: 10%;
+  margin: 0 auto;
+  border-radius: 3px;
+  font-weight:bold; 
+}
+
+.buttonInstructionStart{
+  width: 15vh;
+  height: 8vh;
+  margin: 0 auto;
+  border-radius: 0.5vh;
+  margin-top:2vh;
+  font-size: 3vh;
+  margin-bottom:2vh;
+
+}
+
+
+.center {
+  text-align: center; 
+}
+
+.translate {
+  margin-top: 1vh;
+}
+
+.title{
+  font: 5vh "Century Gothic", Futura, sans-serif;
+  background: white;
+  margin-top: 5vh;
+  position: center;
+}
+
+
+.text {
+  font-size: 5vh;  
+}
+
+.divider{
+    width:20px;
+    height:auto;
+    display:inline-block;
+}
+
+
+.symbolframe {
+  width:  75%;
+  height: 75%;
+  padding: 0.5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+  margin-bottom: 2%; 
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;  
+}
+
+.introbandits {
+  width: 120%;
+  height: 60%;
+  height: 60%;
+  width: 60%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 1%;
+  margin-bottom: 2px; 
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;  
+  }
+
+
+.bold { font-weight: bold; }
+.red { color: #FF0000; }
+.blue { color: #326699; }
+
+
+
+
+
+

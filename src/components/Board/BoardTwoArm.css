@@ -1,0 +1,24 @@
+
+.allBricks {
+  text-align: center;
+    display:flex;
+    padding-top:10%;
+    justify-content:center;
+    flex-direction:row;
+    cursor: pointer;    
+}
+
+.brick1 {
+  float: right;
+  overflow: auto;
+  width: 30%;
+  margin-right:1%;
+}
+
+.brick2 {
+  float: left;
+  overflow: auto;
+  width: 30%;
+  margin-left:1%;
+}
+

@@ -1,0 +1,62 @@
+{
+  "name": "webap-rlnoise",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "bootstrap": "^4.4.1",
+    "eslint-config-react-app": "^5.2.0",
+    "jquery": "^3.4.1",
+    "react": "^16.12.0",
+    "react-bootstrap": "^1.6.4",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.1",
+    "react-transition-group": "^1.2.1",
+    "typescript": "^3.7.5"
+  },
+  "engines": {
+    "npm": "6.13.6",
+    "ares": "1.15.0",
+    "brotli": "1.0.7",
+    "cldr": "35.1",
+    "http_parser": "2.8.0",
+    "icu": "64.2",
+    "llhttp": "1.1.4",
+    "modules": "64",
+    "napi": "4",
+    "nghttp2": "1.39.2",
+    "node": "10.16.3",
+    "openssl": "1.1.1c",
+    "tz": "2019a",
+    "unicode": "12.1",
+    "uv": "1.28.0",
+    "v8": "6.8.275.32-node.54",
+    "zlib": "1.2.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version",
+      "last 1 edge version"
+    ]
+  }
+}

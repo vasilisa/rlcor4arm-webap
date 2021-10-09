@@ -199,7 +199,7 @@ class BoardFourArm extends React.Component {
         }
 
     // complete feedback 
-    if (this.state.block_info.block_feedback===1) {
+    if (this.state.block_info.block_feedback==='1') {
         noFeedback[idx]      = ''
         noFeedback[i]        = ''
         symbolHighlight[i]   = ''

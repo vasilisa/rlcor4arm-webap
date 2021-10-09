@@ -342,6 +342,7 @@ redirectToEnd = () => { // TO BE CHANGED
 
         console.log('coucou block',block_info) 
 
+
         this.setState({
           block_info: block_info,
         });
@@ -396,7 +397,7 @@ redirectToEnd = () => { // TO BE CHANGED
 render()
   { 
     let text
-    if ((this.state.participant_info.block_number === 0) && (this.state.newblock_frame) && (this.state.block_info.block_feedback===1)) // first block is the complete feedback one
+    if ((this.state.participant_info.block_number === 0) && (this.state.newblock_frame) && (this.state.block_info.block_feedback==='1')) // first block is the complete feedback one
     { 
       // text = <div className='textbox'> <p>This is a <span className="bold">partial</span> feedback block: you will <span className = "bold">only</span> see points of the <span className = "bold">chosen</span> slot machine.</p> 
       text = <div className='textbox'> <p>This is a <span className="bold">complete</span> feedback block: you will see <span className="bold">both</span> points of the <span className = "bold">chosen</span> and of the <span className = "bold">unchosen</span> slot machines.</p> 
@@ -433,7 +434,7 @@ render()
       </CSSTransitionGroup>);
     } 
 
-    else if ((this.state.participant_info.block_number===0)  && (this.state.newblock_frame) && (this.state.block_info.block_feedback===0))
+    else if ((this.state.participant_info.block_number===0)  && (this.state.newblock_frame) && (this.state.block_info.block_feedback==='0'))
     {
       text = <div className='textbox'> <p>This is a <span className="bold">partial</span> feedback block: you will <span className="bold">only</span> see the points of the <span className="bold">chosen</span> slot machine.</p> 
                 <div className="translate"/>

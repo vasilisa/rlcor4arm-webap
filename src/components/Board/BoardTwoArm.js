@@ -103,7 +103,7 @@ class BoardTwoArm extends React.Component {
       const symbolHighlight = this.state.symbolHighlight.slice();
       
     // complete feedback 
-    if (this.state.block_info.block_feedback===1) { // complete feedback = 1 
+    if (this.state.block_info.block_feedback==='1') { // complete feedback = 1 
         if (this.state.block_info.position[this.state.block_info.trial_numb] === 1) {
          // symbol 1 is on the left
           feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===1)

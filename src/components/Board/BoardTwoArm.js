@@ -14,18 +14,14 @@ class BoardTwoArm extends React.Component {
     const block_info       = this.props.location.state.block_info
     const pool_symbols     = this.props.location.state.pool_symbols
 
-    
+//     console.log(block_info)
+
     const current_symbols  = ['','']
 
-    console.log(pool_symbols)
     // Define intitial left and right symbols: 
     current_symbols[0]    = pool_symbols[block_info.position[0]-1] // 1 if on the right symbol 1, 0 if on the left 
     current_symbols[1]    = pool_symbols[2-block_info.position[0]] //
 
-    console.log(current_symbols)
-    
-
-    
     this.state = {
       clickable        : true, // freezing when subject has chosen a symbol
       animation        : true, // relaunch fading animation after each trial
@@ -107,8 +103,8 @@ class BoardTwoArm extends React.Component {
       const symbolHighlight = this.state.symbolHighlight.slice();
       
     // complete feedback 
-    if (this.state.block_info.block_feedback==="1") { // complete feedback = 1 
-        if (this.state.block_info.position[this.state.block_info.trial_numb] === "1") {
+    if (this.state.block_info.block_feedback===1) { // complete feedback = 1 
+        if (this.state.block_info.position[this.state.block_info.trial_numb] === 1) {
          // symbol 1 is on the left
           feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===1)
           feedback[1-i] = this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===1)
@@ -129,7 +125,7 @@ class BoardTwoArm extends React.Component {
       }
       else  // partial feedback 
       {
-        if (this.state.block_info.position[this.state.block_info.trial_numb] === "1") {
+        if (this.state.block_info.position[this.state.block_info.trial_numb] === 1) {
 
           feedback[i]   = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(i===0) + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(i===1)
        
@@ -163,18 +159,19 @@ class BoardTwoArm extends React.Component {
 
       // chosen_symbol :  
       let chosen_symbols = this.state.chosen_symbols;
-      if (this.state.block_info.position[this.state.block_info.trial_numb] === "1" & (i === 0)) {
-          var chosen_symbol = 1
+
+      const chosen_symbol = []
+      
+      if (this.state.block_info.position[this.state.block_info.trial_numb] === 1 & (i === 0)) {
+          const chosen_symbol = 1
         }
-      else if (this.state.block_info.position[this.state.block_info.trial_numb] === "2" & (i === 1)) {
-          var chosen_symbol = 1
+      else if (this.state.block_info.position[this.state.block_info.trial_numb] === 2 & (i === 1)) {
+          const chosen_symbol = 1
         }
       else {
-        var chosen_symbol = 2
+          const chosen_symbol = 2
       }
 
-      // THIS IS TO BE MOVED BELOW 
-      chosen_symbols.push(chosen_symbol)  
       // console.log('Chosen_symbol',chosen_symbols)
 
       const chosen_r_th   = chosen_symbol===1 ? this.state.block_info.th_reward_1[this.state.block_info.trial_numb] : this.state.block_info.th_reward_2[this.state.block_info.trial_numb];
@@ -199,13 +196,16 @@ class BoardTwoArm extends React.Component {
       var date                     = new Date()
       let reaction_time            = date.getTime() - this.prev_reaction_time_date
       this.prev_reaction_time_date = date.getTime()
+      
+      let chosen_rewards   = this.state.chosen_rewards; 
+      
+      let unchosen_rewards = this.state.unchosen_rewards; 
+      
+      chosen_rewards.push(feedback[i])
+      chosen_symbols.push(chosen_symbol) 
+      unchosen_rewards.push(feedback[1-i])
       reaction_times.push(reaction_time)
 
-      let chosen_rewards   = this.state.chosen_rewards; 
-      chosen_rewards.push(feedback[i])
-
-      let unchosen_rewards = this.state.unchosen_rewards; 
-      unchosen_rewards.push(feedback[1-i])
 
       this.setState({        
         chosen_positions : chosen_positions,
@@ -278,7 +278,7 @@ class BoardTwoArm extends React.Component {
     // for each key in cashed object append the values
     var cashed_update = this.state.cashed
     // console.log('This state cash', this.state.cashed)
-    if (Object.keys(cashed_update).length === 0 && cashed_update.constructor === Object || cashed_update === '' || cashed_update ===undefined) {
+    if (Object.keys(cashed_update).length === 0 & cashed_update.constructor === Object || cashed_update === '' || cashed_update ===undefined) {
       // console.log('cash is empty: first session', this.state.cashed)
       
       const keys = ['block_number','chosen_positions','chosen_symbols','chosen_rewards', 

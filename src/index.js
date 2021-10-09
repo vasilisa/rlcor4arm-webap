@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,22 +13,22 @@ import BoardFourArm from "./components/Board/BoardFourArm";
 import * as serviceWorker from './serviceWorker';
 
 
-const RefreshRoute = ({ component: Component, isDataAvailable, ...rest }) => (    
-  <Route
-    {...rest}
-    render={props =>
-       (props.location.state!=undefined) ? ( // if props location state is defined return page, else return to intro
-        <Component {...props} />
-      ) : (
-        <Redirect
-          to={{
-            pathname: "/"
-          }}
-        />
-      )
-    }
-  />
-);
+// const RefreshRoute = ({ component: Component, isDataAvailable, ...rest }) => (    
+//   <Route
+//     {...rest}
+//     render={props =>
+//        (props.location.state!==undefined) ? ( // if props location state is defined return page, else return to intro
+//         <Component {...props} />
+//       ) : (
+//         <Redirect
+//           to={{
+//             pathname: "/"
+//           }}
+//         />
+//       )
+//     }
+//   />
+// );
 
 
 const App = () => {

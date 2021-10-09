@@ -108,19 +108,18 @@ class BoardFourArm extends React.Component {
 
     // console.log('i',i) // 0 if the left brick clicked and 1 if the right one  
     // update symbol without Mutation
+    // console.log('Trial number before update',this.state.block_info.trial_numb)
+
     const newcount     = this.state.block_info.trial_numb + 1
     const end_of_block = (newcount === this.state.block_info.TotalTrial ? true : false ) ? true : false 
 
     const idx = [0,1,2,3]
     const index = idx.indexOf(i);
-    // console.log('Chosen posiion bandit',i)
-    // console.log('Unchosen bandits position',index)
-
+    
     if (index > -1) {
       idx.splice(index, 1);
     }
-    // console.log('Index of unchosen bandits',idx)
-
+    
     
     if (this.state.clickable) {
 
@@ -129,75 +128,70 @@ class BoardFourArm extends React.Component {
       const symbolHighlight = this.state.symbolHighlight.slice();
 
       var chosen_symbol   = []
-      var chosen_r_th     = []
-      var chosen_r        = []
-      var unchosen_r_th   = []
-      var unchosen_r      = []
       var chosen_r_check  = []
       var position        = [] 
 
 
       // chosen option feedback 
-      if (i==0) { 
-            // upper left is chosen find the bandit at this position 1 
-            feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(this.state.block_info.position1[this.state.block_info.trial_numb] === "1") 
-            + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(this.state.block_info.position1[this.state.block_info.trial_numb] === "2")
-            + this.state.block_info.reward_3[this.state.block_info.trial_numb]*(this.state.block_info.position1[this.state.block_info.trial_numb] === "3")
-            + this.state.block_info.reward_4[this.state.block_info.trial_numb]*(this.state.block_info.position1[this.state.block_info.trial_numb] === "4")
+      if (i===0) { 
 
-            chosen_symbol = 1*(this.state.block_info.position1[this.state.block_info.trial_numb] === "1") 
-            + 2*(this.state.block_info.position1[this.state.block_info.trial_numb] === "2")
-            + 3*(this.state.block_info.position1[this.state.block_info.trial_numb] === "3")
-            + 4*(this.state.block_info.position1[this.state.block_info.trial_numb] === "4")
+            
+            feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(this.state.block_info.position1[this.state.block_info.trial_numb] === 1) 
+            + this.state.block_info.reward_2[this.state.block_info.trial_numb]*(this.state.block_info.position1[this.state.block_info.trial_numb] === 2)
+            + this.state.block_info.reward_3[this.state.block_info.trial_numb]*(this.state.block_info.position1[this.state.block_info.trial_numb] === 3)
+            + this.state.block_info.reward_4[this.state.block_info.trial_numb]*(this.state.block_info.position1[this.state.block_info.trial_numb] === 4)
+
+            chosen_symbol = 1*(this.state.block_info.position1[this.state.block_info.trial_numb] === 1) 
+            + 2*(this.state.block_info.position1[this.state.block_info.trial_numb] === 2)
+            + 3*(this.state.block_info.position1[this.state.block_info.trial_numb] === 3)
+            + 4*(this.state.block_info.position1[this.state.block_info.trial_numb] === 4)
 
             // check with reward_upleft 
             chosen_r_check = this.state.block_info.reward_upleft[this.state.block_info.trial_numb]
             position       = 'upleft' 
 
         }
-        else if (i==1){
-            feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(this.state.block_info.position2[this.state.block_info.trial_numb] === "1") + 
-            this.state.block_info.reward_2[this.state.block_info.trial_numb]*(this.state.block_info.position2[this.state.block_info.trial_numb] === "2") + 
-            this.state.block_info.reward_3[this.state.block_info.trial_numb]*(this.state.block_info.position2[this.state.block_info.trial_numb] === "3") + 
-            this.state.block_info.reward_4[this.state.block_info.trial_numb]*(this.state.block_info.position2[this.state.block_info.trial_numb] === "4")
+        else if (i===1){
+            feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(this.state.block_info.position2[this.state.block_info.trial_numb] === 1) + 
+            this.state.block_info.reward_2[this.state.block_info.trial_numb]*(this.state.block_info.position2[this.state.block_info.trial_numb] === 2) + 
+            this.state.block_info.reward_3[this.state.block_info.trial_numb]*(this.state.block_info.position2[this.state.block_info.trial_numb] === 3) + 
+            this.state.block_info.reward_4[this.state.block_info.trial_numb]*(this.state.block_info.position2[this.state.block_info.trial_numb] === 4)
 
-            chosen_symbol = 1*(this.state.block_info.position2[this.state.block_info.trial_numb] === "1") 
-            + 2*(this.state.block_info.position2[this.state.block_info.trial_numb] === "2")
-            + 3*(this.state.block_info.position2[this.state.block_info.trial_numb] === "3")
-            + 4*(this.state.block_info.position2[this.state.block_info.trial_numb] === "4")
+            chosen_symbol = 1*(this.state.block_info.position2[this.state.block_info.trial_numb] === 1) 
+            + 2*(this.state.block_info.position2[this.state.block_info.trial_numb] === 2)
+            + 3*(this.state.block_info.position2[this.state.block_info.trial_numb] === 3)
+            + 4*(this.state.block_info.position2[this.state.block_info.trial_numb] === 4)
 
             // check with reward_upleft 
             chosen_r_check = this.state.block_info.reward_upright[this.state.block_info.trial_numb]
             position       = 'upright' 
-
-
         } 
-        else if (i==2){
-            feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(this.state.block_info.position3[this.state.block_info.trial_numb] === "1") + 
-            this.state.block_info.reward_2[this.state.block_info.trial_numb]*(this.state.block_info.position3[this.state.block_info.trial_numb] === "2") + 
-            this.state.block_info.reward_3[this.state.block_info.trial_numb]*(this.state.block_info.position3[this.state.block_info.trial_numb] === "3") + 
-            this.state.block_info.reward_4[this.state.block_info.trial_numb]*(this.state.block_info.position3[this.state.block_info.trial_numb] === "4") 
+        else if (i===2){
+            feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(this.state.block_info.position3[this.state.block_info.trial_numb] === 1) + 
+            this.state.block_info.reward_2[this.state.block_info.trial_numb]*(this.state.block_info.position3[this.state.block_info.trial_numb] === 2) + 
+            this.state.block_info.reward_3[this.state.block_info.trial_numb]*(this.state.block_info.position3[this.state.block_info.trial_numb] === 3) + 
+            this.state.block_info.reward_4[this.state.block_info.trial_numb]*(this.state.block_info.position3[this.state.block_info.trial_numb] === 4) 
         
-            chosen_symbol = 1*(this.state.block_info.position3[this.state.block_info.trial_numb] === "1") 
-            + 2*(this.state.block_info.position3[this.state.block_info.trial_numb] === "2")
-            + 3*(this.state.block_info.position3[this.state.block_info.trial_numb] === "3")
-            + 4*(this.state.block_info.position3[this.state.block_info.trial_numb] === "4")
+            chosen_symbol = 1*(this.state.block_info.position3[this.state.block_info.trial_numb] === 1) 
+            + 2*(this.state.block_info.position3[this.state.block_info.trial_numb] === 2)
+            + 3*(this.state.block_info.position3[this.state.block_info.trial_numb] === 3)
+            + 4*(this.state.block_info.position3[this.state.block_info.trial_numb] === 4)
 
             // check with reward_upleft 
             chosen_r_check = this.state.block_info.reward_lowleft[this.state.block_info.trial_numb]
             position       = 'lowleft' 
 
         }
-        else if (i==3){
-            feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(this.state.block_info.position4[this.state.block_info.trial_numb] === "1") + 
-            this.state.block_info.reward_2[this.state.block_info.trial_numb]*(this.state.block_info.position4[this.state.block_info.trial_numb] === "2") + 
-            this.state.block_info.reward_3[this.state.block_info.trial_numb]*(this.state.block_info.position4[this.state.block_info.trial_numb] === "3") + 
-            this.state.block_info.reward_4[this.state.block_info.trial_numb]*(this.state.block_info.position4[this.state.block_info.trial_numb] === "4") 
+        else if (i===3){
+            feedback[i] = this.state.block_info.reward_1[this.state.block_info.trial_numb]*(this.state.block_info.position4[this.state.block_info.trial_numb] === 1) + 
+            this.state.block_info.reward_2[this.state.block_info.trial_numb]*(this.state.block_info.position4[this.state.block_info.trial_numb] === 2) + 
+            this.state.block_info.reward_3[this.state.block_info.trial_numb]*(this.state.block_info.position4[this.state.block_info.trial_numb] === 3) + 
+            this.state.block_info.reward_4[this.state.block_info.trial_numb]*(this.state.block_info.position4[this.state.block_info.trial_numb] === 4) 
 
-            chosen_symbol = 1*(this.state.block_info.position4[this.state.block_info.trial_numb] === "1") 
-            + 2*(this.state.block_info.position4[this.state.block_info.trial_numb] === "2")
-            + 3*(this.state.block_info.position4[this.state.block_info.trial_numb] === "3")
-            + 4*(this.state.block_info.position4[this.state.block_info.trial_numb] === "4")
+            chosen_symbol = 1*(this.state.block_info.position4[this.state.block_info.trial_numb] === 1) 
+            + 2*(this.state.block_info.position4[this.state.block_info.trial_numb] === 2)
+            + 3*(this.state.block_info.position4[this.state.block_info.trial_numb] === 3)
+            + 4*(this.state.block_info.position4[this.state.block_info.trial_numb] === 4)
 
             chosen_r_check = this.state.block_info.reward_lowright[this.state.block_info.trial_numb]
             position       = 'lowright' 
@@ -205,7 +199,7 @@ class BoardFourArm extends React.Component {
         }
 
     // complete feedback 
-    if (this.state.block_info.block_feedback==="1") {
+    if (this.state.block_info.block_feedback===1) {
         noFeedback[idx]      = ''
         noFeedback[i]        = ''
         symbolHighlight[i]   = ''
@@ -221,8 +215,6 @@ class BoardFourArm extends React.Component {
       symbolHighlight[idx] = 'null'
     
     }
-  
-      console.log(feedback)
 
       this.setState({        
         feedback  : feedback,
@@ -233,9 +225,15 @@ class BoardFourArm extends React.Component {
       })
 
 
-      console.log('Chosen symbol',chosen_symbol)
+      // console.log('Chosen symbol',chosen_symbol)
 
-      if (chosen_symbol==1){
+      var chosen_r_th     = []
+      var unchosen_r_th   = []
+      var unchosen_r      = []
+      var chosen_r        = []
+      
+
+      if (chosen_symbol===1){
         chosen_r_th   = this.state.block_info.th_reward_1[this.state.block_info.trial_numb] 
         chosen_r      = this.state.block_info.reward_1[this.state.block_info.trial_numb] // this is redundant to feedback but to check that responses are the same 
 
@@ -248,7 +246,7 @@ class BoardFourArm extends React.Component {
         this.state.block_info.reward_4[this.state.block_info.trial_numb]]
 
       }
-      else if (chosen_symbol==2){
+      else if (chosen_symbol===2){
         chosen_r_th   = this.state.block_info.th_reward_2[this.state.block_info.trial_numb] 
         chosen_r      = this.state.block_info.reward_2[this.state.block_info.trial_numb] // this is redundant to feedback but to check that responses are the same 
 
@@ -262,7 +260,7 @@ class BoardFourArm extends React.Component {
         this.state.block_info.reward_4[this.state.block_info.trial_numb]]
 
       }
-      else if (chosen_symbol==3){
+      else if (chosen_symbol===3){
 
         chosen_r_th   = this.state.block_info.th_reward_3[this.state.block_info.trial_numb] 
         chosen_r      = this.state.block_info.reward_3[this.state.block_info.trial_numb] // this is redundant to feedback but to check that responses are the same 
@@ -277,7 +275,7 @@ class BoardFourArm extends React.Component {
 
 
       }
-      else if (chosen_symbol==4){
+      else if (chosen_symbol===4){
         chosen_r_th   = this.state.block_info.th_reward_4[this.state.block_info.trial_numb] 
         chosen_r      = this.state.block_info.reward_4[this.state.block_info.trial_numb] // this is redundant to feedback but to check that responses are the same 
 
@@ -291,11 +289,11 @@ class BoardFourArm extends React.Component {
         this.state.block_info.reward_2[this.state.block_info.trial_numb],
         this.state.block_info.reward_3[this.state.block_info.trial_numb]]
 
-
-
       }
       else{
-        return null
+        console.log('Weird: position chosen symbol not found')
+        feedback[i]   = chosen_r_check 
+        chosen_symbol = -1
       }
 
       // console.log('Chosen reward theoretical',chosen_r_th)
@@ -309,10 +307,11 @@ class BoardFourArm extends React.Component {
       // console.log('Observed unchosen feedback',feedback[idx])
 
 
-      var array_unch = unchosen_r_th.map(Number)
+      // var array_unch = unchosen_r_th.map(Number)
 
-      const sum_unch = array_unch.reduce((a, b) => a + b, 0)
-       
+      // const sum_unch = array_unch.reduce((a, b) => a + b, 0)
+      const sum_unch = unchosen_r_th.reduce((a, b) => a + b, 0)
+      
 
       let block_perf = this.state.block_perf + ((chosen_r_th-(sum_unch/idx.length))/this.state.block_info.position1.length) 
       // console.log(block_perf)
@@ -407,7 +406,7 @@ class BoardFourArm extends React.Component {
     // for each key in cashed object append the values
     var cashed_update = this.state.cashed
     // console.log('This state cash', this.state.cashed)
-    if (Object.keys(cashed_update).length === 0 && cashed_update.constructor === Object || cashed_update === '' || cashed_update ===undefined) {
+    if (Object.keys(cashed_update).length === 0 & cashed_update.constructor === Object || cashed_update === '' || cashed_update ===undefined) {
       // console.log('cash is empty: first session', this.state.cashed)
       
       const keys = ['block_number','chosen_positions','chosen_symbols','chosen_rewards', 

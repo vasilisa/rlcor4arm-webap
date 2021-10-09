@@ -95,11 +95,11 @@ class BlockFourArm extends React.Component {
         else if ((this.state.participant_info.block_number >= 2) && this.state.participant_info.block_number <= (this.state.participant_info.TotalBlock)) {
           console.log('4 arm blocks ')
 
-                    if (this.state.newblock_frame){ // frame true 
-          this.setState({newblock_frame : false})
-          this.props.history.push({
-           pathname: `/BoardFourArm`,
-           state: {participant_info: this.state.participant_info,
+          if (this.state.newblock_frame){ // frame true 
+            this.setState({newblock_frame : false})
+            this.props.history.push({
+            pathname: `/BoardFourArm`,
+            state: {participant_info: this.state.participant_info,
                    block_info      : this.state.block_info,
                    pool_symbols    : this.state.pool_symbols
                  }
@@ -278,8 +278,8 @@ redirectToEnd = () => { // TO BE CHANGED
         if (block_number_ < 3){
 
           console.log('Filtering symbols')
-         var filtered = Object.assign({}, ...
-              Object.entries(data['symbols']).filter(([k,v]) => v!='None').map(([k,v]) => ({[k]:v}))
+          var filtered = Object.assign({},...
+          Object.entries(data['symbols']).filter(([k,v]) => v!=='None').map(([k,v]) => ({[k]:v}))
         );
 
 //        const required_pool_of_symbols = Object.keys(data['symbols']).map((key, index) => (require('../../images/' + data['symbols'][key])))
@@ -320,25 +320,26 @@ redirectToEnd = () => { // TO BE CHANGED
 
       .then((data) => {
 
-//         console.log(data)
+         console.log(data)
 
         if(block_number_ < 3){
           console.log('Fetching a block with 2 arms')
 
 
-          const block_info = {
+          var block_info = {
           block_number   : data.block_number,
           block_feedback : data.block_feedback, // they were coded as 0 = Partial  and 1 = Complete  
           block_type     : data.block_type,
-          reward_1       : Object.keys(data['reward_1']).map((key, index) => (data['reward_1'][key])),
-          reward_2       : Object.keys(data['reward_2']).map((key, index) => (data['reward_2'][key])),
-          th_reward_1    : Object.keys(data['th_reward_1']).map((key, index) => (data['th_reward_1'][key])),
-          th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])),
-          position       : Object.keys(data['position1']).map((key, index) => (data['position1'][key])), // just need one position for that as before 
+          reward_1       : Object.keys(data['reward_1']).map((key, index) => (data['reward_1'][key])).map(Number),
+          reward_2       : Object.keys(data['reward_2']).map((key, index) => (data['reward_2'][key])).map(Number),
+          th_reward_1    : Object.keys(data['th_reward_1']).map((key, index) => (data['th_reward_1'][key])).map(Number),
+          th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])).map(Number),
+          position       : Object.keys(data['position1']).map((key, index) => (data['position1'][key])).map(Number), // just need one position for that as before 
           trial_numb     : 0,
-          TotalTrial     : 2 // Object.keys(data['reward_1']).length
+          TotalTrial     : Object.keys(data['reward_1']).length
         }
-       
+
+        console.log('coucou block',block_info) 
 
         this.setState({
           block_info: block_info,
@@ -351,31 +352,30 @@ redirectToEnd = () => { // TO BE CHANGED
           block_number   : data.block_number,
           block_feedback : data.block_feedback, // they were coded as 0 = Partial  and 1 = Complete  
           block_type     : data.block_type,
-          reward_1       : Object.keys(data['reward_1']).map((key, index) => (data['reward_1'][key])),
-          reward_2       : Object.keys(data['reward_2']).map((key, index) => (data['reward_2'][key])),
-          reward_3       : Object.keys(data['reward_1']).map((key, index) => (data['reward_3'][key])),
-          reward_4       : Object.keys(data['reward_2']).map((key, index) => (data['reward_4'][key])),
+          reward_1       : Object.keys(data['reward_1']).map((key, index) => (data['reward_1'][key])).map(Number),
+          reward_2       : Object.keys(data['reward_2']).map((key, index) => (data['reward_2'][key])).map(Number),
+          reward_3       : Object.keys(data['reward_1']).map((key, index) => (data['reward_3'][key])).map(Number),
+          reward_4       : Object.keys(data['reward_2']).map((key, index) => (data['reward_4'][key])).map(Number),
           
-          th_reward_1    : Object.keys(data['th_reward_1']).map((key, index) => (data['th_reward_1'][key])),
-          th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])),
-          th_reward_3    : Object.keys(data['th_reward_1']).map((key, index) => (data['th_reward_3'][key])),
-          th_reward_4    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_4'][key])),
+          th_reward_1    : Object.keys(data['th_reward_1']).map((key, index) => (data['th_reward_1'][key])).map(Number),
+          th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])).map(Number),
+          th_reward_3    : Object.keys(data['th_reward_1']).map((key, index) => (data['th_reward_3'][key])).map(Number),
+          th_reward_4    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_4'][key])).map(Number),
           
-          position1       : Object.keys(data['position1']).map((key, index) => (data['position1'][key])), // just need one position for that as before 
-          position2       : Object.keys(data['position2']).map((key, index) => (data['position2'][key])), // just need one position for that as before 
-          position3       : Object.keys(data['position3']).map((key, index) => (data['position3'][key])), // just need one position for that as before 
-          position4       : Object.keys(data['position4']).map((key, index) => (data['position4'][key])), // just need one position for that as before 
+          position1       : Object.keys(data['position1']).map((key, index) => (data['position1'][key])).map(Number), // just need one position for that as before 
+          position2       : Object.keys(data['position2']).map((key, index) => (data['position2'][key])).map(Number), // just need one position for that as before 
+          position3       : Object.keys(data['position3']).map((key, index) => (data['position3'][key])).map(Number), // just need one position for that as before 
+          position4       : Object.keys(data['position4']).map((key, index) => (data['position4'][key])).map(Number), // just need one position for that as before 
 
-          reward_upleft       : Object.keys(data['reward_upleft']).map((key, index) => (data['reward_upleft'][key])), // just need one position for that as before 
-          reward_upright      : Object.keys(data['reward_upright']).map((key, index) => (data['reward_upright'][key])), // just need one position for that as before 
-          reward_lowright     : Object.keys(data['reward_lowright']).map((key, index) => (data['reward_lowright'][key])), // just need one position for that as before 
-          reward_lowleft      : Object.keys(data['reward_lowleft']).map((key, index) => (data['reward_lowleft'][key])), // just need one position for that as before 
+          reward_upleft   : Object.keys(data['reward_upleft']).map((key, index) => (data['reward_upleft'][key])), // just need one position for that as before 
+          reward_upright  : Object.keys(data['reward_upright']).map((key, index) => (data['reward_upright'][key])), // just need one position for that as before 
+          reward_lowright : Object.keys(data['reward_lowright']).map((key, index) => (data['reward_lowright'][key])), // just need one position for that as before 
+          reward_lowleft  : Object.keys(data['reward_lowleft']).map((key, index) => (data['reward_lowleft'][key])), // just need one position for that as before 
 
           trial_numb     : 0,
           TotalTrial     : Object.keys(data['reward_1']).length
           }
        
-
         this.setState({
           block_info: block_info,
         });
@@ -395,7 +395,7 @@ redirectToEnd = () => { // TO BE CHANGED
 render()
   { 
     let text
-    if ((this.state.participant_info.block_number === 0) && (this.state.newblock_frame) && (this.state.block_info.block_feedback==="1")) // first block is the complete feedback one
+    if ((this.state.participant_info.block_number === 0) && (this.state.newblock_frame) && (this.state.block_info.block_feedback===1)) // first block is the complete feedback one
     { 
       // text = <div className='textbox'> <p>This is a <span className="bold">partial</span> feedback block: you will <span className = "bold">only</span> see points of the <span className = "bold">chosen</span> slot machine.</p> 
       text = <div className='textbox'> <p>This is a <span className="bold">complete</span> feedback block: you will see <span className="bold">both</span> points of the <span className = "bold">chosen</span> and of the <span className = "bold">unchosen</span> slot machines.</p> 
@@ -432,12 +432,12 @@ render()
       </CSSTransitionGroup>);
     } 
 
-    else if ((this.state.participant_info.block_number===0)  && (this.state.newblock_frame) && (this.state.block_info.block_feedback==="0"))
+    else if ((this.state.participant_info.block_number===0)  && (this.state.newblock_frame) && (this.state.block_info.block_feedback===0))
     {
       text = <div className='textbox'> <p>This is a <span className="bold">partial</span> feedback block: you will <span className="bold">only</span> see the points of the <span className="bold">chosen</span> slot machine.</p> 
                 <div className="translate"/>
-                <img className="introsymbol"  src={require('../../images/symbol_shape_0_grate_None_color_3.png')} alt='introsymbol'/> 
-                <img className="introsymbol"  src={require('../../images/symbol_shape_2_grate_None_color_0.png')} alt='introsymbol'/> 
+                <img className="introsymbol" src={require('../../images/symbol_shape_0_grate_None_color_3.png')} alt='introsymbol'/> 
+                <img className="introsymbol" src={require('../../images/symbol_shape_2_grate_None_color_0.png')} alt='introsymbol'/> 
                 </div>
       
         return (
@@ -598,7 +598,6 @@ render()
 
     else
     {
-      const feedback_type_text = (this.state.block_info.block_feedback==="0") ? 'PARTIAL' : 'COMPLETE';
       const end_of_block_text  = (this.state.block_info.block_type==="training") ? 'End of training block': 'End of block ' + (this.state.participant_info.block_number-2)
       
       if (this.state.newblock_frame) 

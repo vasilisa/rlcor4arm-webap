@@ -15,8 +15,9 @@ class Instructions extends React.Component {
     constructor(props) {
         super(props);
 
-        const prolific_id = this.props.location.state.prolific_id
-        // console.log(prolific_id) 
+        const prolific_id = this.props.location.state.participant_info.prolific_id
+        // console.log('instructions',prolific_id) 
+        // console.log(this.props.location.state)
 
         var currentDate = new Date();
         var date        = currentDate.getDate();

@@ -21,8 +21,8 @@ class Intro extends React.Component {
     console.log(url) 
     let params = queryString.parse(url);
 
-    console.log(params) 
     const prolific_id = (params['PROLIFIC_PID']=== undefined ? 'undefined' : params['PROLIFIC_PID']) 
+    console.log(prolific_id)
     
     var date_time_now = new Date().toLocaleString();
 

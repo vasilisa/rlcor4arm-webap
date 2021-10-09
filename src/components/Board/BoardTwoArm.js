@@ -91,7 +91,7 @@ class BoardTwoArm extends React.Component {
 
   handleClick(i) {
 
-    console.log('i',i) // 0 if the left brick clicked and 1 if the right one  
+    // console.log('i',i) // 0 if the left brick clicked and 1 if the right one  
     // update symbol without Mutation
     const newcount     = this.state.block_info.trial_numb + 1
     const end_of_block = (newcount === this.state.block_info.TotalTrial ? true : false ) ? true : false 
@@ -160,19 +160,21 @@ class BoardTwoArm extends React.Component {
       // chosen_symbol :  
       let chosen_symbols = this.state.chosen_symbols;
 
-      const chosen_symbol = []
+      var chosen_symbol = []
+
+      // console.log(this.state.block_info.position)
       
       if (this.state.block_info.position[this.state.block_info.trial_numb] === 1 & (i === 0)) {
-          const chosen_symbol = 1
+          chosen_symbol = 1
         }
       else if (this.state.block_info.position[this.state.block_info.trial_numb] === 2 & (i === 1)) {
-          const chosen_symbol = 1
+          chosen_symbol = 1
         }
       else {
-          const chosen_symbol = 2
+          chosen_symbol = 2
       }
 
-      // console.log('Chosen_symbol',chosen_symbols)
+      // console.log('Chosen_symbol',chosen_symbol)
 
       const chosen_r_th   = chosen_symbol===1 ? this.state.block_info.th_reward_1[this.state.block_info.trial_numb] : this.state.block_info.th_reward_2[this.state.block_info.trial_numb];
       const unchosen_r_th = chosen_symbol===1 ? this.state.block_info.th_reward_2[this.state.block_info.trial_numb] : this.state.block_info.th_reward_1[this.state.block_info.trial_numb];
@@ -248,7 +250,7 @@ class BoardTwoArm extends React.Component {
   {
     let block_id   = this.state.block_info.block_number
 
-    console.log(this.state.participant_info)
+    // console.log(this.state.participant_info)
 
     var date_time_now = new Date().toLocaleString(); // exact time of the end of the block 
 

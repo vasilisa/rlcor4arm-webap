@@ -17,6 +17,7 @@ class BlockFourArm extends React.Component {
     super(props);
     const participant_info = this.props.location.state.participant_info
 
+    console.log(participant_info)
 
     const block_info = {
       
@@ -336,7 +337,7 @@ redirectToEnd = () => { // TO BE CHANGED
           th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])).map(Number),
           position       : Object.keys(data['position1']).map((key, index) => (data['position1'][key])).map(Number), // just need one position for that as before 
           trial_numb     : 0,
-          TotalTrial     : Object.keys(data['reward_1']).length
+          TotalTrial     : 6 // Object.keys(data['reward_1']).length
         }
 
         console.log('coucou block',block_info) 
@@ -373,7 +374,7 @@ redirectToEnd = () => { // TO BE CHANGED
           reward_lowleft  : Object.keys(data['reward_lowleft']).map((key, index) => (data['reward_lowleft'][key])), // just need one position for that as before 
 
           trial_numb     : 0,
-          TotalTrial     : Object.keys(data['reward_1']).length
+          TotalTrial     : 3 // Object.keys(data['reward_1']).length
           }
        
         this.setState({

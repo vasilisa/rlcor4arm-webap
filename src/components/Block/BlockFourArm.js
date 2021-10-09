@@ -17,7 +17,7 @@ class BlockFourArm extends React.Component {
     super(props);
     const participant_info = this.props.location.state.participant_info
 
-    console.log(participant_info)
+    // console.log(participant_info)
 
     const block_info = {
       
@@ -58,7 +58,7 @@ class BlockFourArm extends React.Component {
       if((this.state.participant_info.block_number < 2) && (this.state.participant_info.block_number <= (this.state.participant_info.TotalBlock)))
           {           
           
-          console.log('2 arm blocks')
+          // console.log('2 arm blocks')
 
           if (this.state.newblock_frame){ // frame true 
           this.setState({newblock_frame : false})
@@ -94,7 +94,7 @@ class BlockFourArm extends React.Component {
           }
         }
         else if ((this.state.participant_info.block_number >= 2) && this.state.participant_info.block_number <= (this.state.participant_info.TotalBlock)) {
-          console.log('4 arm blocks ')
+          // console.log('4 arm blocks ')
 
           if (this.state.newblock_frame){ // frame true 
             this.setState({newblock_frame : false})
@@ -321,8 +321,7 @@ redirectToEnd = () => { // TO BE CHANGED
 
       .then((data) => {
 
-         console.log(data)
-
+        
         if(block_number_ < 3){
           console.log('Fetching a block with 2 arms')
 
@@ -337,11 +336,8 @@ redirectToEnd = () => { // TO BE CHANGED
           th_reward_2    : Object.keys(data['th_reward_2']).map((key, index) => (data['th_reward_2'][key])).map(Number),
           position       : Object.keys(data['position1']).map((key, index) => (data['position1'][key])).map(Number), // just need one position for that as before 
           trial_numb     : 0,
-          TotalTrial     : 6 // Object.keys(data['reward_1']).length
+          TotalTrial     : Object.keys(data['reward_1']).length
         }
-
-        console.log('coucou block',block_info) 
-
 
         this.setState({
           block_info: block_info,
@@ -375,7 +371,7 @@ redirectToEnd = () => { // TO BE CHANGED
           reward_lowleft  : Object.keys(data['reward_lowleft']).map((key, index) => (data['reward_lowleft'][key])), // just need one position for that as before 
 
           trial_numb     : 0,
-          TotalTrial     : 3 // Object.keys(data['reward_1']).length
+          TotalTrial     : Object.keys(data['reward_1']).length
           }
        
         this.setState({

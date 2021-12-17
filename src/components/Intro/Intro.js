@@ -74,9 +74,8 @@ render() {
           The proposed experiment has no immediate application or clinical value, but it will allow us to improve our understanding of the brain functioning.
           We are asking you to participate in this study because you have been recruited by the RISC or Prolific platforms.</p>
           <p><span className="bold">PROCEDURE</span></p>
-          <p>During your participation in this study, we will ask you to play a game, which does not require any particular competence and will last about 40-45 min.</p>
+          <p>During your participation in this study, we will ask you to play a game, which does not require any particular competence and will last about 30 min.</p>
           <b>
-          <p>In total your internet-based participation will require approximately 30 minutes.</p>
           </b>
           <p><span className="bold">VOLUNTARY PARTICIPATION AND CONFIDENTIALITY</span></p>
           <p>Your participation in this study is voluntary. This means that you are consenting to participate in this project without external pressure. During your participation in this project, the researcher in charge and his staff will collect and record information about you.

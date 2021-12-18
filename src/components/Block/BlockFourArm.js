@@ -238,7 +238,7 @@ redirectToEnd = () => { // TO BE CHANGED
 
     alert("You will be redirected to the validation page. Please, confirm leaving the page. Thank you!")
     // window.location.replace('https://app.prolific.co/submissions/complete?cc=1A496EDB')
-    window.location = 'https://app.prolific.co/submissions/complete?cc=1ADFBE99'
+    window.location = 'https://app.prolific.co/submissions/complete?cc=35440DA4'
 
 
   } 
